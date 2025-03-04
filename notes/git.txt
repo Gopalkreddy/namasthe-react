@@ -1,0 +1,7 @@
+git init - for initialize git
+git branch -m main : renaming the branch name
+
+git remote add origin https://github.com/Gopalkreddy/namasthe-react.git
+
+git push origin main;
+
