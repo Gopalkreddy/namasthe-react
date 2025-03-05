@@ -1,0 +1,28 @@
+jsx is not html in JavaScript
+
+it is html like syntax
+
+JSX is a syntax extension for JavaScript that lets you write HTML-like markup in a JavaScript file.
+ It's similar to HTML, but stricter, and it can display dynamic information. JSX is used in React
+
+ It is a html like syntax.
+JSX CODE cann't undersatnd the browser or js engine 
+ JSX (Transpiled before it reaches the js) it will do parcel by using babel
+
+ If you want write code in multiple line wrap code in ()
+
+  const jsxHeading =<h1>Heading using jsx</h1>  
+  
+  To
+  
+    const jsxHeading =(<h1>
+  Heading using jsx
+  </h1>) 
+
+  Now babel can undersatnd where can code start and end
+  
+  in jsx when ever we need to add css class use className
+
+  use cammelCase in jsx
+
+  jsx privents crosssite inject 

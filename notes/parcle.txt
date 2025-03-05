@@ -1,0 +1,67 @@
+npx parcel index.html
+
+Parcle can do:
+
+Dev build
+Local server
+HMR- Hot module Replacement
+File watching algorithm -- written in c++
+caching -Faster build , it will save in .parcle-cache
+Image Optimization
+Minification
+Bundling
+Compress
+Consistant hashing
+Code splitting
+Differential Bundling -- support older version browser
+Tree shaking algoritham - will remove unused code
+Defferent Dev and producation bundles
+
+For Production build - npx parcle build index.html -> you need to remove "main "app.js"" file in package.json file
+
+
+
+If you want excecute a package we need to use npx
+
+getting react cdn links are not goot practice
+
+npm install React
+
+npm install react-dom 
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+script type="module" src="app.js"> you need to mention type="module" for working import react
+
+npx parcel build index.html -- It will generate production build code
+
+npx meaning excecute the project
+
+cdn is not good way to implement react project.
+
+If we use npm ,package.json it will easy to generate any version of code in the future and not required to hit network calls
+
+npm install react
+
+npm install react-dom 
+
+npm i react-dom is short form
+
+
+if we use -D it will be a devDependencies
+"devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+ 
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+
+  browser script can't have imports or exports use this <script type="module" src="./app.js"> instead of <script src="./app.js">
+
+   <script src="./app.js"> it will consider normal java script , so we can use ****** type="module" ****
+
+   GO and read parcel document

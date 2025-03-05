@@ -1,0 +1,11 @@
+we can mention commands in script then we can use those
+
+ "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+
+  Now instead of "npx parcel index.html" simply : "npm run start" this can simply more "npm start"
+
+  npm run build

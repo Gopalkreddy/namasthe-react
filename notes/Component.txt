@@ -1,0 +1,44 @@
+React components
+
+two types
+
+Class based 
+Functional
+----
+
+component name should start with Capital letter
+
+ const Title =()=>(
+        <h1 className="Head">Namasthe react using jsx</h1>
+    )
+function returns the react element that is called funcational component
+React element is a JSX 
+
+Functional component IS Function IT WILL return jsx
+
+ we need to render component like root.render(<HeadingComponet/>) we should place in < >
+  root.render(<HeadingComponet/>)
+
+ for element root.render(Heading) not requires <>
+
+ component composition is placing one component in another component
+
+  const HeadingComponet = ()=> (
+        <div id ="containrer">
+         <Title/>
+         {Title()}
+         <Title></Title>
+         {jsxHeading}
+         <h1> This is funcational component</h1>
+        </div>
+    )
+
+ Any JavaScript expression can write in component using {}
+
+ we can call Functional component in below ways
+
+   <Title/>
+    {Title()}
+     <Title></Title>
+
+{data} whenever we put component in {} ,jsx cann't put data directly it can sanitize the data

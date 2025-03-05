@@ -1,16 +1,33 @@
+import React from "react"; //this is the default import it will get react from node_modules
+import ReactDOM from "react-dom"; //this is the default import it will get react-dom from node_modules
+import ReactDOM from "react-dom/client";    
 
-    const parent =React.createElement("div",{id:"parent"},[
-        React.createElement("div",{id:"child1"}, [
-            React.createElement("h1",{id:"heading"},"hello world"),
-            React.createElement("h2",{id:"heading1"},"hello world test")
-        ]),
-        React.createElement("div",{id:"child2"}, [
-            React.createElement("h1",{id:"heading3"},"hello world2"),
-            React.createElement("h2",{id:"heading4"},"hello world test3")
-        ])
-    ]
-)
-
+const heading= React.createElement("h1",{id:"heading"},"React element1")
     const root=ReactDOM.createRoot(document.getElementById("root"));
-    root.render(parent)
+    root.render(heading)
+    console.log(heading)
+    
+
+
+    //React element
+    const jsxHeading =<h1 tabIndex="5">Heading using jsx</h1>
+    
+   
+     //React component
+    //Class based component -OLD
+    //Functiobal component -NEW
+    const Title =()=>( <h1 className="Head">Namasthe react using jsx</h1>)
+
+    const HeadingComponet = ()=> (
+        <div id ="containrer">
+         <Title/>
+         {heading}
+         {Title()}
+         <Title></Title>
+         {jsxHeading}
+         <h1> This is funcational component</h1>
+        </div>
+    )
+
+    root.render(<HeadingComponet/>)
     

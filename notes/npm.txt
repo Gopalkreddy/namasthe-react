@@ -1,0 +1,34 @@
+npm is not stands for node package manager
+
+it doesn't have any full form
+
+it manages packages
+
+it is a standard package it has all the libraries, it manages that for us
+
+For the npm installation need to run
+
+---npm init----- while running it asks some inputs after providing the inputs package.json file will create
+package.json is the configuration for npm, it keeps what version is using
+
+npm will take care of verion of libraries using package.json
+
+Bundler: webpack,parcel,veet
+
+npm install -D parcle 
+_d
+There are two types of dependences 
+ 1) dev ->It requires development
+ 2) Normal
+
+  "react": "^18.3.1" --> it will update next minor verion automaticaly
+
+   "react": "~18.3.1" --> it will update major version automaticaly
+
+package.lock.json : it keeps exact version
+
+Transative dependency -- one dependence depends on other dependence
+
+If you have package.json and package-lock.json we can recreate all node modules
+
+node modules is collection of dependences

@@ -1,0 +1,7 @@
+Hooks
+Normal js utility function
+
+useState()
+useEffect()
+
+when ever state variable changes react rerender the page
