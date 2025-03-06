@@ -1,0 +1,18 @@
+we should use key in map if add key in this case can not read all components again 
+
+First : Res1, res2,res3,res4F
+
+If another card Reso at first position if use key it insert new res component only , It will not render all components
+
+It will impact on performance
+
+map will take secound param as index like
+
+https://legacy.reactjs.org/docs/lists-and-keys.html
+
+restList.map((restaurant,index)=>{
+                        return <RestaurantCard key={index} resData={restaurant}/>
+                    })
+
+Not using key is not acceptable >> use index as a key if we dont have unique key
+
