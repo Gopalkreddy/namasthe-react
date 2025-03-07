@@ -6,7 +6,9 @@ import Shimmer from "./Shimmer";
 import restList from "../utils/mockData";
 const Body=()=>{
 
-    const [listOfRestaurants,setListOfRestaurants]=useState([])
+    const [listOfRestaurants,setListOfRestaurants]=useState([]);
+    const [filteredList,setFilteredList]=useState([]);
+    const [searchText,setSearchText]=useState("");
 
     useEffect(()=>{
       fetchData()
@@ -19,6 +21,7 @@ const Body=()=>{
        console.log(jsonData);
        //optional chainimg
        setListOfRestaurants(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+       setFilteredList(jsonData?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     //condintional rendering
@@ -28,15 +31,32 @@ const Body=()=>{
 
     
     return listOfRestaurants.length===0?  <Shimmer/> : (<div className="body">
-              <div className="search">Search</div>
+             
               <div className="filter">
+                <div className="search">
+              <input type="text" placeholder="Search for Restaurants" className="search-box" value={searchText} 
+              onChange={(e)=>
+              setSearchText(e.target.value)
+              }/>
+              <button className="search-button" onClick={()=>{
+                  const filterdList =  listOfRestaurants.filter((restaurant)=>{
+                      return restaurant.info.name.toLowerCase().includes(searchText.toLowerCase());
+                  }
+                  )
+
+                  setFilteredList(filterdList);
+              }
+              }
+              >Search</button>
+              </div>
+
                 <button className="filter-button" onClick={()=>{
                   const filterdList =  listOfRestaurants.filter((restaurant)=>{
                         return restaurant.info.avgRating>=4.3;
                     }
                     )
 
-                    setListOfRestaurants(filterdList);
+                    setFilteredList(filterdList);
                 }}
                 >
                     
@@ -46,7 +66,7 @@ const Body=()=>{
               </div>
               <div className="restaurant-container">
                 {
-                    listOfRestaurants.map((restaurant)=>{
+                    filteredList.map((restaurant)=>{
                         return <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
                     })
                 }
