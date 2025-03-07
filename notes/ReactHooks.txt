@@ -5,3 +5,15 @@ useState()
 useEffect()
 
 when ever state variable changes react rerender the page
+
+Reconcilation algorithem (React fiber)
+
+virtual DOM is a representaion of actual DOM
+
+it is javascript object
+
+Diff algorithem
+
+in react16 -> Reconcilation -> React fiber
+
+https://github.com/acdlite/react-fiber-architecture

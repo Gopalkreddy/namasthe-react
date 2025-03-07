@@ -1,0 +1,25 @@
+we should export the component before using the in another file
+
+export default Header;
+
+then 
+------------
+default export
+-----------------
+import Header from "./components/Header";
+
+import RestaurantCard from "./RestaurantCard"; RestaurantCard.js this is a file name not component
+
+Named export
+=============
+
+If you want to export more then one components we can use Named export
+
+just put export before variable/component name
+
+export const CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660";
+export const LOGO_URL = "https://bcassetcdn.com/public/blog/wp-content/uploads/2019/07/18094833/the-red-cafe.png";
+
+import can do like below
+
+import { CDN_URL } from "../utils/constants";  

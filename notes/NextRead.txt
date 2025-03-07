@@ -3,3 +3,7 @@ Parcel documentaion
 jsx tags
 
 https://legacy.reactjs.org/docs/lists-and-keys.html
+
+https://github.com/acdlite/react-fiber-architecture
+
+incremental rerender
