@@ -1,0 +1,28 @@
+import React from "react";
+// use class keyworrd and import  React.Component
+
+props can handele by constructor and super,
+
+state variable can declare and access using this.state and this.setState like this.setState({count:this.state.count+1})
+
+life cycle
+
+constructor() called
+render()
+ComponentDidMount()
+
+usulay fetch data api will use in ComponentDidMount
+
+
+class UserClass1 extends React.Component {
+constructor(props){
+  super(props);
+
+  this.state={
+    name:props.name,
+    address:props.address,
+    age:20,
+    count:0
+  }
+React Life Cycle
+  https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
