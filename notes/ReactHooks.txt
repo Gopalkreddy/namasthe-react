@@ -16,4 +16,49 @@ Diff algorithem
 
 in react16 -> Reconcilation -> React fiber
 
-https://github.com/acdlite/react-fiber-architecture
+https://github.com/acdlite/react-fiber-architecture;
+
+using the useEffect() , it will rerender the component after fetching the data 
+
+
+    useEffect(()=>{
+      fetchData()
+    }
+    ,[]); -> initial data will be empty , after 
+
+    useEffect will take one call back function and depe array s are arguments
+
+If we dont use empty dependency array , it will call every component render
+    useEffect(()=>{
+      fetchData()
+    }
+    )
+
+If we  use empty dependency array , it will call only initial component render
+
+ useEffect(()=>{
+      fetchData()
+    }
+    ,[]);
+
+  If  dependency array has value, It will call when dependency value has changes
+
+  const [buttonNameReact, setButtonNameReact] = useState("Login");
+
+    useEffect(()=>{
+        console.log("useEffect called")
+    }
+    ,[buttonNameReact]);
+
+    <button className="login" onClick={()=>{
+                        if(buttonNameReact==="Login"){
+                            setButtonNameReact("Logout")
+                        }else{
+                            setButtonNameReact("Login")
+                        }
+                    }}>{buttonNameReact}</button>
+
+when ever buttonNameReact value changes it will call
+
+
+
