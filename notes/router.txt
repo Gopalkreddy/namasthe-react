@@ -1,0 +1,76 @@
+import {createBrowserRouter,RouterProvider, BrowserRouter,  Routes, Route,Outlet } from "react-router";
+
+we should install npm install react-router-dom for routing in react
+
+react-router will provide createBrowserRouter,RouterProvider, BrowserRouter,  Routes, Route,Outlet
+
+using createBrowserRouter we can create our own custom routing
+
+const browserRouting = createBrowserRouter([
+  { path: "/", element: <AppLayout />,errorElement: <Error/> },
+  {path: "/", element: <Body/>},
+    {path: "/about", element: <About/>},
+    {path: "/contact", element: <Contact/>}
+]);
+
+using errorElement we can display custom error message
+
+RouterProvider is used to provide the routing to the application
+
+BrowserRouter is used to provide the routing to the application using the default routing
+
+const routing = (
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<AppLayout />} />
+          <Route path="about" element={<About />} />
+        </Routes>
+      </BrowserRouter>)
+
+
+    root.render( 
+     routing
+   );
+
+
+using Outlet we can dynamicaly change childern componenets
+
+const browserRouting = createBrowserRouter([
+  { path: "/", element: <AppLayout />,children:[
+    {path: "/", element: <Body/>},
+    {path: "/about", element: <About/>},
+    {path: "/contact", element: <Contact/>}
+
+  ],errorElement: <Error/> }
+]);
+
+const AppLayout=()=>{
+    return(<div className="app">   
+    <Header/>
+    <Outlet/>
+   
+      </div>
+    )
+}
+
+
+
+root.render(<RouterProvider router={browserRouting}/>);
+
+import { useRouteError } from "react-router"
+
+using this we can get error info
+
+ const errorm = useRouteError();
+    return(
+        <div>
+            <h1>{errorm.status}</h1>
+            <p>{errorm.statusText}</p>
+        </div>
+    )
+
+
+# two types of routing
+
+server side routing
+client side routing

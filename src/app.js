@@ -11,6 +11,7 @@ import About from "./components/About";
 import { Contact } from "./components/Contact";
 
 import { Error } from "./components/Error";
+import RestaurantInfo from "./components/RestaurantInfo";
 
 
 
@@ -27,7 +28,8 @@ const browserRouting = createBrowserRouter([
   { path: "/", element: <AppLayout />,children:[
     {path: "/", element: <Body/>},
     {path: "/about", element: <About/>},
-    {path: "/contact", element: <Contact/>}
+    {path: "/contact", element: <Contact/>},
+    {path: "/restaurent/:resId", element: <RestaurantInfo/>}
 
   ],errorElement: <Error/> }
 ]);
