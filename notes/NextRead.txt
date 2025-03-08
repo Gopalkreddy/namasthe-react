@@ -6,4 +6,9 @@ https://legacy.reactjs.org/docs/lists-and-keys.html
 
 https://github.com/acdlite/react-fiber-architecture
 
+https://reactrouter.com/home 
 incremental rerender
+
+shimmer UI
+
+//condintional rendering
