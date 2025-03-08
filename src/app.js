@@ -2,7 +2,7 @@ import React from "react"; //this is the default import it will get react from n
 import ReactDOM from "react-dom"; //this is the default import it will get react-dom from node_modules
 import ReactDOM from "react-dom/client";   
 
-import {createBrowserRouter,RouterProvider, BrowserRouter,  Routes, Route } from "react-router";
+import {createBrowserRouter,RouterProvider, BrowserRouter,  Routes, Route,Outlet } from "react-router";
 
 import Header from "./components/Header";
 
@@ -17,16 +17,19 @@ import { Error } from "./components/Error";
 const AppLayout=()=>{
     return(<div className="app">   
     <Header/>
-    <Body/>
+    <Outlet/>
    
       </div>
     )
 }
 
 const browserRouting = createBrowserRouter([
-  { path: "/", element: <AppLayout />,errorElement: <Error/> },  
-  {path: "/about", element: <About/>},
-  {path: "/contact", element: <Contact/>}
+  { path: "/", element: <AppLayout />,children:[
+    {path: "/", element: <Body/>},
+    {path: "/about", element: <About/>},
+    {path: "/contact", element: <Contact/>}
+
+  ],errorElement: <Error/> }
 ]);
 
 
