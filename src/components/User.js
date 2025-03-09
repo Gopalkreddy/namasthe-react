@@ -1,10 +1,22 @@
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 
 
 const User = (props)=>{
     const {name,address}=props;
 
     const [count,setCount]=useState(0);
+
+    useEffect(()=>{
+      
+ const timer= setInterval(()=>{
+ console.log("Interval called in useEffect");
+ },1000) 
+
+      return()=>{
+        clearInterval(timer);
+        console.log("Component Will Unmount in useEffect return method");
+      }   
+    },[])
 
    return( <div className="user-card">
          <button onClick={()=>{
