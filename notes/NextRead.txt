@@ -12,3 +12,12 @@ incremental rerender
 shimmer UI
 
 //condintional rendering
+
+css types
+----------
+
+https://styled-components.com/
+
+https://mui.com/material-ui/react-button/
+
+https://tailwindcss.com/

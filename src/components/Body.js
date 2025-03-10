@@ -42,39 +42,38 @@ const Body=()=>{
     
     return listOfRestaurants.length===0?  <Shimmer/> : (<div className="body">
              
-              <div className="filter">
-                <div className="search">
-              <input type="text" placeholder="Search for Restaurants" className="search-box" value={searchText} 
-              onChange={(e)=>
-              setSearchText(e.target.value)
-              }/>
-              <button className="search-button" onClick={()=>{
-                  const filterdList =  listOfRestaurants.filter((restaurant)=>{
-                      return restaurant.info.name.toLowerCase().includes(searchText.toLowerCase());
-                  }
-                  )
+              <div className="flex ">
+                <div className="search m-4 p-4">
+                    <input type="text" className="border border-solid border-black" placeholder="Search for Restaurants" value={searchText} 
+                    onChange={(e)=>
+                    setSearchText(e.target.value)
+                    }/>
+                    <button className="px-4 py-2 bg-green-100 m-4 rounded-lg cursor-pointer" onClick={()=>{
+                        const filterdList =  listOfRestaurants.filter((restaurant)=>{
+                            return restaurant.info.name.toLowerCase().includes(searchText.toLowerCase());
+                        }
+                        )
 
-                  setFilteredList(filterdList);
-              }
-              }
-              >Search</button>
-              </div>
-
-                <button className="filter-button" onClick={()=>{
-                  const filterdList =  listOfRestaurants.filter((restaurant)=>{
-                        return restaurant.info.avgRating>=4.3;
+                        setFilteredList(filterdList);
                     }
-                    )
+                    }
+                    >Search</button>
+                </div>
+                  <div className="m-4 p-4 flex items-center">
+                      <button className="px-4 py-2 bg-gray-100 rounded-lg cursor-pointer" onClick={()=>{
+                        const filterdList =  listOfRestaurants.filter((restaurant)=>{
+                              return restaurant.info.avgRating>=4.3;
+                          }
+                          )
 
-                    setFilteredList(filterdList);
-                }}
-                >
-                    
-                    Top Ratted Restaurants
-                
-                </button>
+                          setFilteredList(filterdList);
+                      }}
+                      >    
+                          Top Ratted Restaurants
+                      </button>
+                </div>
               </div>
-              <div className="restaurant-container">
+              <div className="flex flex-wrap">
                 {
                     // filteredList.map((restaurant)=>{
                     //     return <RestaurantCard key={restaurant.info.id} resData={restaurant}/>
