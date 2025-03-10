@@ -6,6 +6,8 @@ import { Link } from "react-router";
 import Shimmer from "./Shimmer";
 
 import restList from "../utils/mockData";
+
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body=()=>{
 
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
@@ -31,6 +33,12 @@ const Body=()=>{
   //   return <Shimmer/>
   //  }
 
+  const onlineStatus = useOnlineStatus();
+
+  if(!onlineStatus){
+    console.log("offline in body")
+    return <h1>Offline</h1>
+  }
     
     return listOfRestaurants.length===0?  <Shimmer/> : (<div className="body">
              

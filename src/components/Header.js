@@ -1,6 +1,8 @@
 import { LOGO_URL } from "../utils/constants";
 import { useEffect, useState } from "react";
 
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 import { Link } from "react-router";
 const Header=()=>{
     const [buttonNameReact, setButtonNameReact] = useState("Login");
@@ -23,6 +25,10 @@ const Header=()=>{
     }
     );
 
+    //custom hook
+     const onlineStatus = useOnlineStatus();
+     console.log("Online status",onlineStatus);
+
 
     return(<div className="header">
                 <div className="logo-containter">
@@ -30,7 +36,8 @@ const Header=()=>{
                 </div>
 
                 <div className="nav-items">
-                    <ul>    
+                    <ul>  
+                        <li>online Status {onlineStatus?"online✅":"offline ❌"}</li>  
                     <li>
                      <Link to="/">Home</Link>
                     </li>
@@ -41,6 +48,9 @@ const Header=()=>{
                        {/* <a href="/contact" >Contact</a> if we use anchor tag it will reload the page */}
                     <Link to="/contact">Contact</Link>
                      </li>   
+                     <li>
+                        <Link to="/grocery">Grocery</Link>
+                    </li>
                     <li>Cart</li>    
                     <button className="login" onClick={()=>{
                         if(buttonNameReact==="Login"){

@@ -4,35 +4,29 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router";
 import { MENU_API_URL } from "../utils/constants";
 
+import useRestaurentMenu from "../utils/useRestaurentMenu";
+
 
 
 
 const RestaurantInfo =()=>{
     const {resId}=useParams();
-    console.log(resId);
+   // console.log(resId);
 
-    const [restInfo,setRestinfo]=useState(null);
+   // const [restInfo,setRestinfo]=useState(null);
 
-    useEffect(()=>{
-        fetchMenu();
-     },[]);
+    const resInfo = useRestaurentMenu(resId);
+
+
+    
      
-     const fetchMenu = async()=>{
-         const res = await fetch(MENU_API_URL + resId);
-         const json = await res.json();
-         console.log(json);
-            setRestinfo(json.data);
-            
-        
-     }
-     
-     if(!restInfo){
+     if(!resInfo){
          return <Shimmer></Shimmer>
      }
 
-     const {name,cuisines,costForTwoMessage,menu}=restInfo.cards[2].card.card.info;
+     const {name,cuisines,costForTwoMessage,menu}=resInfo.cards[2].card.card.info;
      //console.log(restInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card.itemCards);
-     const{itemCards}=restInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
+     const{itemCards}=resInfo.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card;
    
 
     return(

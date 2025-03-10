@@ -1,4 +1,4 @@
-import React from "react"; //this is the default import it will get react from node_modules
+import React, { lazy,Suspense } from "react"; //this is the default import it will get react from node_modules
 import ReactDOM from "react-dom"; //this is the default import it will get react-dom from node_modules
 import ReactDOM from "react-dom/client";   
 
@@ -12,8 +12,9 @@ import { Contact } from "./components/Contact";
 
 import { Error } from "./components/Error";
 import RestaurantInfo from "./components/RestaurantInfo";
+;
 
-
+const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout=()=>{
     return(<div className="app">   
@@ -29,6 +30,7 @@ const browserRouting = createBrowserRouter([
     {path: "/", element: <Body/>},
     {path: "/about", element: <About/>},
     {path: "/contact", element: <Contact/>},
+    {path: "/grocery", element: <Suspense fallback={<h1>Loading Grocery info</h1>}><Grocery/></Suspense> },
     {path: "/restaurent/:resId", element: <RestaurantInfo/>}
 
   ],errorElement: <Error/> }

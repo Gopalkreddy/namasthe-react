@@ -1,0 +1,15 @@
+//optimizing the app
+
+code-splitting
+dynamic bundling
+const Grocery = lazy(() => import("./components/Grocery"));
+
+ chunking
+
+ Lazy loading
+
+ onDemand Loading
+
+ Suspence component
+
+ to reduce the bundling size we can use dynamic import ,Lazy loading
