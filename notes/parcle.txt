@@ -23,7 +23,7 @@ For Production build - npx parcle build index.html -> you need to remove "main "
 
 If you want excecute a package we need to use npx
 
-getting react cdn links are not goot practice
+getting react cdn links are not good practice
 
 npm install React
 

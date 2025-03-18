@@ -1,7 +1,9 @@
 import { LOGO_URL } from "../utils/constants";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
 
 import useOnlineStatus from "../utils/useOnlineStatus";
+
+import UserContext from "../utils/userContext";
 
 import { Link } from "react-router";
 const Header=()=>{
@@ -24,6 +26,10 @@ const Header=()=>{
         console.log("useEffect called")
     }
     );
+
+    const {loggedInUser} = useContext(UserContext);
+
+    console.log("loggedInUser",loggedInUser);
 
     //custom hook
      const onlineStatus = useOnlineStatus();
@@ -59,6 +65,7 @@ const Header=()=>{
                             setButtonNameReact("Login")
                         }
                     }}>{buttonNameReact}</button>
+                     <li className="px-4">{loggedInUser}</li>    
                 </ul>
                 </div>
             </div>)

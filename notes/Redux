@@ -1,0 +1,9 @@
+npm install @reduxjs/toolkit
+
+npm install react-redux
+
+Build our store
+connect our app to store
+slice(cartSlice)
+dispatch(action)
+selector

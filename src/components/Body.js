@@ -7,12 +7,19 @@ import Shimmer from "./Shimmer";
 
 import restList from "../utils/mockData";
 
+import { withPromotedLabel } from "./RestaurantCard";
+
 import useOnlineStatus from "../utils/useOnlineStatus";
 const Body=()=>{
 
     const [listOfRestaurants,setListOfRestaurants]=useState([]);
     const [filteredList,setFilteredList]=useState([]);
     const [searchText,setSearchText]=useState("");
+   // console.log("listOfRestaurants",listOfRestaurants);
+
+    const RestaurantCardWithPromoted = withPromotedLabel(RestaurantCard);
+
+
 
     useEffect(()=>{
       fetchData()
@@ -81,7 +88,9 @@ const Body=()=>{
 
                     filteredList.map((restaurant)=>(
                       <Link to={"/restaurent/"+restaurant.info.id} key={restaurant.info.id}>
-                        <RestaurantCard resData={restaurant}/>
+
+                        {restaurant.info.avgRating==4  ? <RestaurantCardWithPromoted resData={restaurant}/>: 
+                        <RestaurantCard resData={restaurant}/>}
                       </Link>
                     ))
                 }

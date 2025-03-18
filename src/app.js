@@ -12,16 +12,37 @@ import { Contact } from "./components/Contact";
 
 import { Error } from "./components/Error";
 import RestaurantInfo from "./components/RestaurantInfo";
+import { useEffect, useState } from "react";
+
+import UserContext from "./utils/userContext";
 ;
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout=()=>{
-    return(<div className="app">   
+
+  const [userName,setUserName]=useState("Gopal");
+
+  useEffect(()=>{
+
+
+    // make and api call to get the user info
+    const data = {
+      name: "Gopal Reddy" 
+    }
+
+    setUserName(data.name);
+  }
+  ,[]);
+
+    return(
+    <UserContext.Provider value={{loggedInUser:userName}}>
+    <div className="app">   
     <Header/>
     <Outlet/>
    
       </div>
+      </UserContext.Provider>
     )
 }
 

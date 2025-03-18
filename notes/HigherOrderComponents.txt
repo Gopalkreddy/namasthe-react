@@ -1,0 +1,21 @@
+higherOrderComponents is function it will use one component and generate new component
+
+
+  {restaurant.info.avgRating==4  ? <RestaurantCardWithPromoted resData={restaurant}/>: 
+                        <RestaurantCard resData={restaurant}/>}
+
+
+export const withPromotedLabel=(RestaurantCard)=>{
+    return (props)=>{
+       
+      
+            return(
+                <div>
+                    <label className="absolute bg-black text-white m-2 p-2 rounded-2xl">Promoted</label>
+                    <RestaurantCard {...props}/>
+                </div>
+            )
+        
+        
+    }
+}
