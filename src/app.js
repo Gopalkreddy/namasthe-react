@@ -15,7 +15,9 @@ import RestaurantInfo from "./components/RestaurantInfo";
 import { useEffect, useState } from "react";
 
 import UserContext from "./utils/userContext";
-;
+ import { Provider } from "react-redux";
+ import appStore from "./utils/appStore";
+ import Cart  from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -36,6 +38,7 @@ const AppLayout=()=>{
   ,[]);
 
     return(
+      <Provider store={appStore}> 
     <UserContext.Provider value={{loggedInUser:userName}}>
     <div className="app">   
     <Header/>
@@ -43,6 +46,7 @@ const AppLayout=()=>{
    
       </div>
       </UserContext.Provider>
+      </Provider>
     )
 }
 
@@ -52,7 +56,8 @@ const browserRouting = createBrowserRouter([
     {path: "/about", element: <About/>},
     {path: "/contact", element: <Contact/>},
     {path: "/grocery", element: <Suspense fallback={<h1>Loading Grocery info</h1>}><Grocery/></Suspense> },
-    {path: "/restaurent/:resId", element: <RestaurantInfo/>}
+    {path: "/restaurent/:resId", element: <RestaurantInfo/>},
+    {path:"/cart",element:<Cart/>}
 
   ],errorElement: <Error/> }
 ]);

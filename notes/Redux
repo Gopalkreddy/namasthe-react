@@ -7,3 +7,78 @@ connect our app to store
 slice(cartSlice)
 dispatch(action)
 selector
+
+
+
+
+import { configureStore } from "@reduxjs/toolkit" -- configure and create store is toolkit job
+
+import { Provider } from "react-redux"; -- Provider is redux job
+
+export slice export default cardSlice.reducer;
+
+use slice in appStore 
+
+
+import cart1Reducer from "./cartSlice";
+const appStore = configureStore({
+  reducer: {
+  cart1 : cart1Reducer,
+  }
+}); 
+
+import appStore import appStore from "./utils/appStore"; in main file app.js and pass to Provider 
+
+
+ 
+ return(
+      <Provider store={appStore}> 
+    <UserContext.Provider value={{loggedInUser:userName}}>
+    <div className="app">   
+    <Header/>
+    <Outlet/>
+   
+      </div>
+      </UserContext.Provider>
+      </Provider>
+    )
+
+    we can subscribe anywhere in app using the useSelector
+
+
+    //subscribe to the store using selector
+    const cartItems = useSelector((store)=>{
+        return store.cart1.items;
+    }
+    );
+
+
+    we can dispatch items using useDispatch when user clicks on addItem to card
+import { addItem } from "../utils/cartSlice";
+
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+      dispatch(addItem("Biryani"));
+    } 
+example:
+
+    action :{
+        payload:"Biryani"
+    }
+
+    redux will take biryani as secound parameter in addItem as action,action has payload will have value
+
+// total store subscribe
+    const store = useSelector((store)=>{
+        return store;
+    }
+    );
+
+  //  const cartItems = store.cart1.items;
+
+// subscribing only cart1 slice
+const cartItems = useSelector((store)=>{
+        return store.cart1.items;
+    }
+    );

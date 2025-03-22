@@ -6,6 +6,8 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
 
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
+
 const Header=()=>{
     const [buttonNameReact, setButtonNameReact] = useState("Login");
     console.log("Header called")
@@ -15,6 +17,15 @@ const Header=()=>{
         console.log("useEffect called only in first render")
     }
     ,[]);
+
+    //subscribe to the store using selector
+    const cartItems = useSelector((store)=>{
+        return store.cart1.items;
+    }
+    );
+
+    console.log("cart",cartItems);
+
 // below useEffect called only when buttonNameReact changes
     // useEffect(()=>{
     //     console.log("useEffect called")
@@ -57,7 +68,10 @@ const Header=()=>{
                      <li className="px-4">
                         <Link to="/grocery">Grocery</Link>
                     </li>
-                    <li className="px-4">Cart</li>    
+                    <li className="px-4 font-bold text-xl">
+                    <Link to="/cart"> Cart ({cartItems.length} Items) )</Link>
+                       
+                    </li>    
                     <button className="login" onClick={()=>{
                         if(buttonNameReact==="Login"){
                             setButtonNameReact("Logout")
